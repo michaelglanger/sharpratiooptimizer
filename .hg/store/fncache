@@ -1,0 +1,14 @@
+data/src/sharpratiooptimizer/SharpRatioOptimizer.java.i
+data/.hgignore.i
+data/build.xml.i
+data/data/amex2011.csv.i
+data/data/apple2011.csv.i
+data/libs/commons-math3-3.0-bin.zip.i
+data/libs/commons-math3-3.0-bin.zip.d
+data/libs/commons-math3-3.0-bin.zip.i
+data/manifest.mf.i
+data/nbproject/build-impl.xml.i
+data/nbproject/genfiles.properties.i
+data/nbproject/project.properties.i
+data/nbproject/project.xml.i
+data/src/sharpratiooptimizer/ValueDateSimple.java.i
