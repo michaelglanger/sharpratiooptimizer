@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class ValueDateSimple {
     
-    private float value;
+    private double value;
     private int iDate;
     private Date date;
 
@@ -30,11 +30,11 @@ public class ValueDateSimple {
         this.date = date;
     }
 
-    public float getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(float value) {
+    public void setValue(double value) {
         this.value = value;
     }
 
