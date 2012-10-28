@@ -1,0 +1,4 @@
+sharpratiooptimizer
+===================
+
+Sharp Ratio Optimizer
