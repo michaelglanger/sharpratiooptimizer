@@ -109,6 +109,32 @@ public class EquityHelper {
         return result;
     }
     
+    public static int[] shiftWeighters(int[] input, int delta, int sumValue) {
+        int[] result = new int[input.length];
+        
+        double[] intermediate = new double[input.length];
+        double sum = 0;
+        
+        for(int i = 0; i < input.length; i++) {
+            intermediate[i] = (delta * (Math.random()-0.5)) + input[i];
+            sum += intermediate[i];
+        }
+        double d = sumValue / sum / 100;
+        
+        int iSum = 0;
+        for (int i = 0; i < result.length; i++) {
+            result[i] = (int) Math.round(intermediate[i]*d);
+            iSum += result[i];
+        }
+        
+        if (sumValue != iSum) {
+            int diff = sumValue - iSum;
+            int index = Math.round((float) ((input.length-1)*Math.random()));
+            result[index] += diff;
+        }
+        return result;
+    }
+    
     public static int[] createWeighters(int amount, int sumValue) {
         int[] result = new int[amount];
         double[] intermediate = new double[amount];

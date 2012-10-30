@@ -42,7 +42,7 @@ public class SharpRatioOptimizer {
 //        Portfolio p = PortfolioHelper.createPortofolio(files);
 //        System.out.println(p.toString());
         
-        List<Portfolio> pps = PortfolioHelper.createSetPortfolio(files, 4, 10);
+        List<Portfolio> pps = PortfolioHelper.createSetPortfolio(files, 4, 20);
         
         for ( int k = 0; k < 100000; k++) {
             Collections.sort(pps, new Comparator<Portfolio>() {
@@ -59,11 +59,15 @@ public class SharpRatioOptimizer {
 
             });
 
-            for ( int i = 9; i >= 5; i--) {
+            for ( int i = 19; i >= 8; i--) {
                pps.remove(i);
             }
+            
+            for ( int i = 1; i < 8; i++) {
+                PortfolioHelper.shiftWeighters(pps.get(i), 5, 100);
+            }
 
-            pps.addAll(PortfolioHelper.createSetPortfolio(files, 4, 5));
+            pps.addAll(PortfolioHelper.createSetPortfolio(files, 4, 12));
         }
         
          for (Portfolio pp : pps) {

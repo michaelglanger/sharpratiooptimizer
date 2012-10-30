@@ -78,4 +78,10 @@ public class PortfolioHelper {
         return portfolios;
     }
     
+    public static void shiftWeighters(Portfolio p, int delta, int max) {
+        int[] wws = p.getWeighters();
+        p.setWeighters(EquityHelper.shiftWeighters(wws, delta, max));
+        p.calculateSharpRatio();
+    }
+    
 }

@@ -13,12 +13,11 @@ public class Portfolio {
     private Equity[] ll;
     private int[] weighters;
     private double sharpRatio;
-    boolean shCalculated = false;
     
     public Portfolio(Equity[] eqs, int[] wts) {
         ll = eqs;
         weighters = wts;
-        getSharpRatio();
+        calculateSharpRatio();
     }
     
     public String toString() {
@@ -31,12 +30,21 @@ public class Portfolio {
         return sb.toString();
     }
     
-    public double getSharpRatio() {
-        if (!shCalculated) {
-            sharpRatio = EquityHelper.getCompoundSharpRatio(ll, weighters);
-            shCalculated = true;
-        } 
+    public double calculateSharpRatio() {
+        sharpRatio = EquityHelper.getCompoundSharpRatio(ll, weighters);
         return sharpRatio;
+    }
+    
+    public double getSharpRatio() {
+        return sharpRatio;
+    }
+    
+    public int[] getWeighters() {
+        return weighters;
+    }
+    
+    public void setWeighters(int[] ws) {
+        weighters = ws;
     }
     
 }
