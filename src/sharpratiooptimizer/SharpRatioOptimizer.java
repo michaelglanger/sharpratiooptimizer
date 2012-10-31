@@ -25,7 +25,7 @@ public class SharpRatioOptimizer {
         List<EqFileName> files = ConfigurationHelper.loadConfiguration();
         List<Portfolio> pps = PortfolioHelper.createSetPortfolio(files, 10, 20);
         
-        for ( int k = 0; k < 10000; k++) {
+        for ( int k = 0; k < 1000000; k++) {
             Collections.sort(pps, new Comparator<Portfolio>() {
 
                 @Override
