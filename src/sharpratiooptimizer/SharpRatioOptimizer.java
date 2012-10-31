@@ -7,51 +7,32 @@ package sharpratiooptimizer;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.ResourceBundle;
+import sharpratiooptimizer.configuration.ConfigurationHelper;
+import sharpratiooptimizer.configuration.EqFileName;
+import sharpratiooptimizer.portfolio.Portfolio;
+import sharpratiooptimizer.portfolio.PortfolioHelper;
 
 /**
  *
  * @author michaellanger
  */
 public class SharpRatioOptimizer {
- 
-    private static final String DATA_FOLDER ="dataFolder";
-    private static final String FILE_FORMAT = "fileFormat";
-    private static final String EQUITIES = "equities";
     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ResourceBundle rb = ResourceBundle.getBundle("equities");
+        List<EqFileName> files = ConfigurationHelper.loadConfiguration();
+        List<Portfolio> pps = PortfolioHelper.createSetPortfolio(files, 10, 20);
         
-        String folder = rb.getString(DATA_FOLDER);
-        String fileFormat = rb.getString(FILE_FORMAT);
-        String equitiesString = rb.getString(EQUITIES);
-        
-        String[] equitiesFiles = equitiesString.split(",");
-        
-        String[] files = new String[equitiesFiles.length];
-        
-        for(int i = 0; i < files.length; i++) {
-            files[i] = ""+folder + equitiesFiles[i] + fileFormat;
-        }
-        
-        SharpRatioOptimizer sro = new SharpRatioOptimizer();
-        
-//        Portfolio p = PortfolioHelper.createPortofolio(files);
-//        System.out.println(p.toString());
-        
-        List<Portfolio> pps = PortfolioHelper.createSetPortfolio(files, 4, 20);
-        
-        for ( int k = 0; k < 100000; k++) {
+        for ( int k = 0; k < 10000; k++) {
             Collections.sort(pps, new Comparator<Portfolio>() {
 
                 @Override
                 public int compare(Portfolio o1, Portfolio o2) {
-                    if (o1.getSharpRatio() < o2.getSharpRatio() ) {
+                    if (o1.getSharpRatio() < o2.getSharpRatio() && o1.getProfit() < o2.getProfit()) {
                         return 1;
-                    } else if (o1.getSharpRatio() > o2.getSharpRatio() ) {
+                    } else if (o1.getSharpRatio() > o2.getSharpRatio() && o1.getProfit() > o2.getProfit() ) {
                         return -1;
                     }
                     return 0;
@@ -64,10 +45,10 @@ public class SharpRatioOptimizer {
             }
             
             for ( int i = 1; i < 8; i++) {
-                PortfolioHelper.shiftWeighters(pps.get(i), 5, 100);
+                PortfolioHelper.shiftWeighters(pps.get(i), 6, 100);
             }
 
-            pps.addAll(PortfolioHelper.createSetPortfolio(files, 4, 12));
+            pps.addAll(PortfolioHelper.createSetPortfolio(files, 10, 12));
         }
         
          for (Portfolio pp : pps) {
@@ -78,7 +59,5 @@ public class SharpRatioOptimizer {
          System.out.println(pps.get(0).toString());
         
     }
-    
-    
-    
+        
 }

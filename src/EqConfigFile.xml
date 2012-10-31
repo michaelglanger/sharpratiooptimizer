@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<EqFiles>
+    <dataFolder>data/</dataFolder>
+    <fileFormat>csv</fileFormat>
+    <eqConfigs>
+        <EqConfig name="Apple" startDate="20110101" endDate="20111231">
+            <fileName>apple2011</fileName>
+        </EqConfig>
+        <EqConfig name="American Express" startDate="20110101" endDate="20111231">
+            <fileName>amex2011</fileName>
+        </EqConfig>
+        <EqConfig name="Boeing" startDate="20110101" endDate="20111231">
+            <fileName>boeing2011</fileName>
+        </EqConfig>
+        <EqConfig name="HP" startDate="20110101" endDate="20111231">
+            <fileName>hp2011</fileName>
+        </EqConfig>
+        <EqConfig name="UBS" startDate="20110101" endDate="20111231">
+            <fileName>ubs2011</fileName>
+        </EqConfig>
+        <EqConfig name="Microsoft" startDate="20110101" endDate="20111231">
+            <fileName>msft2011</fileName>
+        </EqConfig>
+         <EqConfig name="Oracle" startDate="20110101" endDate="20111231">
+            <fileName>oracle2011</fileName>
+        </EqConfig>
+         <EqConfig name="IBM" startDate="20110101" endDate="20111231">
+            <fileName>ibm2011</fileName>
+        </EqConfig>
+        <EqConfig name="Intel" startDate="20110101" endDate="20111231">
+            <fileName>intc2011</fileName>
+        </EqConfig>
+         <EqConfig name="Alcoa" startDate="20110101" endDate="20111231">
+            <fileName>alcoa2011</fileName>
+        </EqConfig>
+        <EqConfig name="Bank of America" startDate="20110101" endDate="20111231">
+            <fileName>bankAmerica2011</fileName>
+        </EqConfig>
+        <EqConfig name="Caterpillar" startDate="20110101" endDate="20111231">
+            <fileName>cat2011</fileName>
+        </EqConfig>
+        <EqConfig name="Cisco" startDate="20110101" endDate="20111231">
+            <fileName>cisco2011</fileName>
+        </EqConfig>
+        <EqConfig name="Chevron" startDate="20110101" endDate="20111231">
+            <fileName>chevron2011</fileName>
+        </EqConfig>
+        <EqConfig name="Disney" startDate="20110101" endDate="20111231">
+            <fileName>disney2011</fileName>
+        </EqConfig>
+        <EqConfig name="General Electrics" startDate="20110101" endDate="20111231">
+            <fileName>ge2011</fileName>
+        </EqConfig>
+        <EqConfig name="Johnson_Johnson" startDate="20110101" endDate="20111231">
+            <fileName>jnj2011</fileName>
+        </EqConfig>
+        <EqConfig name="HD" startDate="20110101" endDate="20111231">
+            <fileName>hd2011</fileName>
+        </EqConfig>
+        <EqConfig name="JPM" startDate="20110101" endDate="20111231">
+            <fileName>jpm2011</fileName>
+        </EqConfig>
+        <EqConfig name="CocaCola" startDate="20110101" endDate="20111231">
+            <fileName>ko2011</fileName>
+        </EqConfig>
+        <EqConfig name="McDonalds" startDate="20110101" endDate="20111231">
+            <fileName>mcd2011</fileName>
+        </EqConfig>
+        <EqConfig name="3M" startDate="20110101" endDate="20111231">
+            <fileName>mmm2011</fileName>
+        </EqConfig>
+        <EqConfig name="Merck" startDate="20110101" endDate="20111231">
+            <fileName>mrk2011</fileName>
+        </EqConfig>
+        <EqConfig name="PFE" startDate="20110101" endDate="20111231">
+            <fileName>pfe2011</fileName>
+        </EqConfig>
+        <EqConfig name="PG" startDate="20110101" endDate="20111231">
+            <fileName>pg2011</fileName>
+        </EqConfig>
+        <EqConfig name="AT_T" startDate="20110101" endDate="20111231">
+            <fileName>t2011</fileName>
+        </EqConfig>
+        <EqConfig name="TRV" startDate="20110101" endDate="20111231">
+            <fileName>trv2011</fileName>
+        </EqConfig>
+        <EqConfig name="UNH" startDate="20110101" endDate="20111231">
+            <fileName>unh2011</fileName>
+        </EqConfig>
+        <EqConfig name="UTX" startDate="20110101" endDate="20111231">
+            <fileName>utx2011</fileName>
+        </EqConfig>
+        <EqConfig name="VZ" startDate="20110101" endDate="20111231">
+            <fileName>vz2011</fileName>
+        </EqConfig>
+        <EqConfig name="WMT" startDate="20110101" endDate="20111231">
+            <fileName>wmt2011</fileName>
+        </EqConfig>
+        <EqConfig name="XOM" startDate="20110101" endDate="20111231">
+            <fileName>xom2011</fileName>
+        </EqConfig>
+        <EqConfig name="DD" startDate="20110101" endDate="20111231">
+            <fileName>dd2011</fileName>
+        </EqConfig>
+    </eqConfigs>
+    
+</EqFiles>

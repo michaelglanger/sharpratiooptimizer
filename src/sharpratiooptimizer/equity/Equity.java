@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package sharpratiooptimizer;
+package sharpratiooptimizer.equity;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -15,10 +16,19 @@ public class Equity {
     private List<ValueDateSimple> list;
     private List<Double> dailyReturn;
     private double sharpRatio;
-    
+        
     public Equity(String fileName) {
-        eqName = fileName;
+        this(fileName, fileName);
+    }
+    
+    public Equity(String fileName, String name) {
+        eqName = name;
         list = new EquityHelper().readFromFile(fileName);
+    }
+    
+    public Equity(File file, String name) {
+        eqName = name;
+        list = new EquityHelper().readFromFile(file);
     }
     
     public String getName() {

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package sharpratiooptimizer;
+package sharpratiooptimizer.equity;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.math3.stat.descriptive.moment.Mean;
 import org.apache.commons.math3.stat.descriptive.moment.StandardDeviation;
+import sharpratiooptimizer.SharpRatioOptimizer;
 
 /**
  *
@@ -36,7 +37,11 @@ public class EquityHelper {
     private static final int YEAR = 0;
     
     public List<ValueDateSimple> readFromFile(String fileName) {
-        File file = new File(fileName);
+         File file = new File(fileName);
+         return readFromFile(file);
+    }
+        
+    public List<ValueDateSimple> readFromFile(File file) {
         System.out.println(file.getAbsolutePath());
         List<ValueDateSimple> list = new ArrayList<ValueDateSimple>();
         try {
