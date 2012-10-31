@@ -4,13 +4,15 @@
  */
 package sharpratiooptimizer.portfolio;
 
-import sharpratiooptimizer.equity.EquityHelper;
 import sharpratiooptimizer.equity.Equity;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import sharpratiooptimizer.configuration.EqFileName;
+import sharpratiooptimizer.dataprovider.IDataProvider;
+import sharpratiooptimizer.dataprovider.PlainDataProvider;
+import sharpratiooptimizer.equity.EquityHelper;
 
 /**
  *
@@ -26,12 +28,12 @@ public class PortfolioHelper {
     
     public static Portfolio createPortfolio(List<EqFileName> fileNames, int[] wgts) {
         Equity[] ll = new Equity[fileNames.size()];
-        
+        IDataProvider dataProvider = new PlainDataProvider();
         for (int i = 0; i < ll.length; i++) {
             if (equitiesCache.containsKey(fileNames.get(i).getName())) {
                 ll[i] = equitiesCache.get(fileNames.get(i).getName());
             } else {
-                Equity eq = new Equity(fileNames.get(i).getFile(), fileNames.get(i).getName());
+                Equity eq = new Equity(dataProvider.getData(fileNames.get(i).getName()), fileNames.get(i).getName());
                 equitiesCache.put(fileNames.get(i).getName(), eq);
                 ll[i] = eq;
             }

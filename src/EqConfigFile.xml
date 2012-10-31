@@ -102,6 +102,9 @@
         <EqConfig name="DD" startDate="20110101" endDate="20111231">
             <fileName>dd2011</fileName>
         </EqConfig>
+        <EqConfig name="GLD" startDate="20110101" endDate="20111231">
+            <fileName>gld2011</fileName>
+        </EqConfig>
     </eqConfigs>
     
 </EqFiles>

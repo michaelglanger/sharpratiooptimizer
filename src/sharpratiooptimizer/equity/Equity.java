@@ -4,7 +4,6 @@
  */
 package sharpratiooptimizer.equity;
 
-import java.io.File;
 import java.util.List;
 
 /**
@@ -16,19 +15,10 @@ public class Equity {
     private List<ValueDateSimple> list;
     private List<Double> dailyReturn;
     private double sharpRatio;
-        
-    public Equity(String fileName) {
-        this(fileName, fileName);
-    }
     
-    public Equity(String fileName, String name) {
+    public Equity(List<ValueDateSimple> list, String name) {
         eqName = name;
-        list = new EquityHelper().readFromFile(fileName);
-    }
-    
-    public Equity(File file, String name) {
-        eqName = name;
-        list = new EquityHelper().readFromFile(file);
+        this.list = list;
     }
     
     public String getName() {
@@ -36,7 +26,7 @@ public class Equity {
     }
     
     public void calculateDailyReturns() {
-        dailyReturn = new EquityHelper().getDailyReturn(list);
+        dailyReturn = EquityHelper.getDailyReturn(list);
     }
     
     public double calculateSharpRatio() {
