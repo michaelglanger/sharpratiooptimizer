@@ -2,6 +2,9 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="SharpRatioOptimizerPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>sharpratiooptimizer.data.Market</class>
+    <class>sharpratiooptimizer.data.Stock</class>
+    <class>sharpratiooptimizer.data.Symbol</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sharpoptimizer"/>
       <property name="javax.persistence.jdbc.password" value="222222"/>
