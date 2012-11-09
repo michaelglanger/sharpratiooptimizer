@@ -10,6 +10,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import sharpratiooptimizer.configuration.ConfigurationHelper;
+import sharpratiooptimizer.configuration.EqFileName;
 import sharpratiooptimizer.configuration.MarketDescriptor;
 import sharpratiooptimizer.configuration.StockDescriptor;
 import sharpratiooptimizer.configuration.Stocks;
@@ -22,7 +23,7 @@ import sharpratiooptimizer.equity.ValueDataStock;
 
 /**
  *
- * @author axjyb
+ * @author Michael G. Langer
  */
 public class StockDataLoader {
     
@@ -30,6 +31,7 @@ public class StockDataLoader {
     private EntityManagerFactory factory;
     private EntityManager em;
     private Stocks stocks;
+    private List<EqFileName> fileNames;
     
     public StockDataLoader() {
         factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
@@ -40,6 +42,10 @@ public class StockDataLoader {
         stocks = ConfigurationHelper.loadStocksConfiguration();
         loadMarkets();
         loadSymbols();
+        
+        fileNames = ConfigurationHelper.loadConfiguration();
+        
+        loadStocks();
         em.close();
     }
     
@@ -95,43 +101,58 @@ public class StockDataLoader {
         em.getTransaction().commit();
     }
     
-    public void loadStocks() {
-        Market market = em.find(Market.class, new Long(1));
-        Symbol symbol = em.find(Symbol.class, new Long(1));
-
-        StockDataProvider sdp = new StockDataProvider();
-        List<ValueData> list = sdp.getData("data/ge2.csv");
-        em.getTransaction().begin();
-        for(ValueData v : list) {
-            ValueDataStock vds = (ValueDataStock) v;
-            StringBuilder sb = new StringBuilder();
-            sb.append(vds.getDate().toString()).append(" ");
-            sb.append(vds.getOpen().toString()).append(" ");
-            sb.append(vds.getHigh().toString()).append(" ");
-            sb.append(vds.getLow().toString()).append(" ");
-            sb.append(vds.getClose().toString()).append(" ");
-            sb.append(vds.getVolume()).append(" ");
-            sb.append(vds.getAdjclose().toString()).append(" ");
-            System.out.println(sb.toString());
-
-            Query q = em.createQuery("select s from Stock s where s.date = :date");
-            q.setParameter("date", vds.getDate());
-            List l = q.getResultList();
-            if ( l.isEmpty() ) {
-                Stock stock = new Stock();
-                stock.setMktopen(vds.getOpen());
-                stock.setHigh(vds.getHigh());
-                stock.setLow(vds.getLow());
-                stock.setMktclose(vds.getClose());
-                stock.setDate(vds.getDate());
-                stock.setVolume(vds.getVolume());
-                stock.setAdjClose(vds.getAdjclose());
-                stock.setSymbol(symbol);
-                em.persist(stock);
+    private String getSymbol(String id) {
+        for (StockDescriptor sd : stocks.getStockList()) {
+            if (sd.getId().equals(id)) {
+                return sd.getName();
             }
-
-
         }
-        em.getTransaction().commit();
+        return id;
+    }
+    
+    private void loadStocks() {
+        em.getTransaction().begin();
+        for (EqFileName fn : fileNames) {
+            
+            Query qs = em.createQuery("select s from Symbol s where s.symbol = :symbol");
+            qs.setParameter("symbol", getSymbol(fn.getName()));
+            Symbol symbol = (Symbol) qs.getSingleResult();
+            
+            StockDataProvider sdp = new StockDataProvider();
+            List<ValueData> list = sdp.getData(fn.getFileName());
+
+            for(ValueData v : list) {
+                ValueDataStock vds = (ValueDataStock) v;
+                StringBuilder sb = new StringBuilder();
+                sb.append(vds.getDate().toString()).append(" ");
+                sb.append(vds.getOpen().toString()).append(" ");
+                sb.append(vds.getHigh().toString()).append(" ");
+                sb.append(vds.getLow().toString()).append(" ");
+                sb.append(vds.getClose().toString()).append(" ");
+                sb.append(vds.getVolume()).append(" ");
+                sb.append(vds.getAdjclose().toString()).append(" ");
+                System.out.println(sb.toString());
+
+                Query q = em.createQuery("select s from Stock s where s.date = :date and s.symbol = :symbol");
+                q.setParameter("date", vds.getDate());
+                q.setParameter("symbol", symbol);
+                List l = q.getResultList();
+                if ( l.isEmpty() ) {
+                    Stock stock = new Stock();
+                    stock.setMktopen(vds.getOpen());
+                    stock.setHigh(vds.getHigh());
+                    stock.setLow(vds.getLow());
+                    stock.setMktclose(vds.getClose());
+                    stock.setDate(vds.getDate());
+                    stock.setVolume(vds.getVolume());
+                    stock.setAdjClose(vds.getAdjclose());
+                    stock.setSymbol(symbol);
+                    em.persist(stock);
+                }
+
+            }
+           
+        }
+         em.getTransaction().commit();
     }
 }

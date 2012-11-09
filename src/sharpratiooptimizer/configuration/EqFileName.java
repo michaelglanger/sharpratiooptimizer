@@ -14,8 +14,10 @@ public class EqFileName {
     
     private File file;
     private String name;
+    private String fileName;
 
     public EqFileName(String fileName, String name) {
+        this.fileName = fileName;
         file = new File(fileName);
         this.name = name;
     }
@@ -36,5 +38,8 @@ public class EqFileName {
         this.name = name;
     }
    
+    public String getFileName() {
+        return fileName;
+    }
     
 }

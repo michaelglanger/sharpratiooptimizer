@@ -16,8 +16,12 @@
     </markets>
     <stockList>
         <StockDescriptor id='ge_nyse' market='nyse'>
-            <name>ge</name>
+            <name>GE</name>
             <description>General Electrics NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='ibm_nyse' market='nyse'>
+            <name>IBM</name>
+            <description>IBM NYSE</description>
         </StockDescriptor>
     </stockList>
 </Stocks>
