@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Stocks>
+    <markets>
+        <MarketDescriptor id='nyse'>
+            <name>NYSE</name>
+            <location>USA</location>
+        </MarketDescriptor>
+        <MarketDescriptor id='nasdaq'>
+            <name>NASDAQ</name>
+            <location>USA</location>
+        </MarketDescriptor>
+        <MarketDescriptor id='xetra'>
+            <name>XETRA</name>
+            <location>Europa</location>
+        </MarketDescriptor>
+    </markets>
+    <stockList>
+        <StockDescriptor id='ge_nyse' market='nyse'>
+            <name>ge</name>
+            <description>General Electrics NYSE</description>
+        </StockDescriptor>
+    </stockList>
+</Stocks>

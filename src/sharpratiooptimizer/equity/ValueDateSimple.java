@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author michaellanger
  */
-public class ValueDateSimple {
+public class ValueDateSimple implements ValueData {
     
     private double value;
     private int iDate;

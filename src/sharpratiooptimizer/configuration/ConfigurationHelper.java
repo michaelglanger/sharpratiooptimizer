@@ -36,4 +36,19 @@ public class ConfigurationHelper {
         return result;
     }
     
+    public static Stocks loadStocksConfiguration() {
+        XStream xstream = new XStream(new StaxDriver());
+        xstream.alias("Stocks", Stocks.class);
+        xstream.alias("MarketDescriptor", MarketDescriptor.class);
+        xstream.alias("StockDescriptor", StockDescriptor.class);
+        xstream.useAttributeFor(MarketDescriptor.class, "id");
+        xstream.useAttributeFor(StockDescriptor.class, "id");
+        xstream.useAttributeFor(StockDescriptor.class, "market");
+        
+        Stocks stocks = (Stocks) xstream.fromXML(new File("src/stocks.xml"));
+        
+        
+        return stocks;
+    }
+    
 }

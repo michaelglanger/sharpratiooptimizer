@@ -10,6 +10,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -34,6 +35,7 @@ public class Market implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "ID")
+    @GeneratedValue 
     private Long id;
     @Column(name = "MARKET_NAME")
     private String marketName;

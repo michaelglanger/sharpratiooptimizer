@@ -10,6 +10,7 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -42,6 +43,7 @@ public class Stock implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "ID")
+    @GeneratedValue 
     private Long id;
     @Basic(optional = false)
     @Column(name = "DATE")

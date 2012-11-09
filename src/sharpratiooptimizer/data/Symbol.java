@@ -10,6 +10,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -36,6 +37,7 @@ public class Symbol implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "ID")
+    @GeneratedValue 
     private Long id;
     @Basic(optional = false)
     @Column(name = "SYMBOL")

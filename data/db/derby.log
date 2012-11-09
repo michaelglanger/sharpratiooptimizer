@@ -1,8 +1,8 @@
-Fri Nov 02 16:51:56 CET 2012 : Apache Derby Network Server - 10.9.1.0 - (1344872) started and ready to accept connections on port 1527
+Thu Nov 08 11:01:31 CET 2012 : Apache Derby Network Server - 10.9.1.0 - (1344872) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Fri Nov 02 16:51:56 CET 2012:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-013a-c1d2-4de8-00006dd9c5ea 
-on database directory D:\Users\axjyb\Documents\NetBeansProjects\sharpratiooptimizer\data\db\sharpoptimizer  with class loader sun.misc.Launcher$AppClassLoader@12360be0 
+Thu Nov 08 11:01:32 CET 2012:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-013a-df77-a6a1-00006dd9c5ea 
+on database directory D:\Users\axjyb\Documents\NetBeansProjects\sharpratiooptimizer\data\db\sharpoptimizer  with class loader sun.misc.Launcher$AppClassLoader@1a45a877 
 Loaded from file:/D:/Users/axjyb/Documents/NetBeansProjects/sharpratiooptimizer/libs/db-derby-10.9.1.0-lib/lib/derby.jar
 java.vendor=Sun Microsystems Inc.
 java.runtime.version=1.6.0_32-b05
