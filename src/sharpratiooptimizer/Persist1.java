@@ -6,6 +6,7 @@ package sharpratiooptimizer;
 
 import javax.persistence.EntityManagerFactory;
 import sharpratiooptimizer.dataloader.StockDataLoader;
+import sharpratiooptimizer.dataprovider.YahooStockDataProvider;
 
 /**
  *
@@ -18,7 +19,7 @@ public class Persist1 {
 
   public static void main(String[] args) {
       
-      StockDataLoader sdl = new StockDataLoader();
+      StockDataLoader sdl = new StockDataLoader(new YahooStockDataProvider());
       sdl.loadData();
   
   }

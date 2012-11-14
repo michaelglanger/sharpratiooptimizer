@@ -23,5 +23,33 @@
             <name>IBM</name>
             <description>IBM NYSE</description>
         </StockDescriptor>
+         <StockDescriptor id='msft_nasdaq' market='nasdaq'>
+            <name>MSFT</name>
+            <description>Microsoft Corporation NASDAQ</description>
+        </StockDescriptor>
+         <StockDescriptor id='ba_nyse' market='nyse'>
+            <name>BA</name>
+            <description>Boeing NYSE</description>
+        </StockDescriptor>
+         <StockDescriptor id='aapl_nasdaq' market='nasdaq'>
+            <name>AAPL</name>
+            <description>Apple NASDAQ</description>
+        </StockDescriptor>
+        <StockDescriptor id='apx_nyse' market='nyse'>
+            <name>AXP</name>
+            <description>American Express NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='hpq_nyse' market='nyse'>
+            <name>HPQ</name>
+            <description>Hewlett Packard NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='ubs_nyse' market='nyse'>
+            <name>UBS</name>
+            <description>UBS NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='orcl_nasdaq' market='nasdaq'>
+            <name>ORCL</name>
+            <description>Oracle NYSE</description>
+        </StockDescriptor>
     </stockList>
 </Stocks>

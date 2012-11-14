@@ -4,9 +4,11 @@
  */
 package sharpratiooptimizer.dataloader;
 
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import sharpratiooptimizer.configuration.ConfigurationHelper;
@@ -17,6 +19,7 @@ import sharpratiooptimizer.configuration.Stocks;
 import sharpratiooptimizer.data.Market;
 import sharpratiooptimizer.data.Stock;
 import sharpratiooptimizer.data.Symbol;
+import sharpratiooptimizer.dataprovider.IDataProvider;
 import sharpratiooptimizer.dataprovider.StockDataProvider;
 import sharpratiooptimizer.equity.ValueData;
 import sharpratiooptimizer.equity.ValueDataStock;
@@ -32,12 +35,18 @@ public class StockDataLoader {
     private EntityManager em;
     private Stocks stocks;
     private List<EqFileName> fileNames;
+    private IDataProvider sdp;
     
     public StockDataLoader() {
+        this(new StockDataProvider());
+    }
+   
+    public StockDataLoader(IDataProvider dataProvider) {
+        sdp = dataProvider;
         factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         em = factory.createEntityManager();
     }
-   
+    
     public void loadData() {
         stocks = ConfigurationHelper.loadStocksConfiguration();
         loadMarkets();
@@ -118,8 +127,21 @@ public class StockDataLoader {
             qs.setParameter("symbol", getSymbol(fn.getName()));
             Symbol symbol = (Symbol) qs.getSingleResult();
             
-            StockDataProvider sdp = new StockDataProvider();
-            List<ValueData> list = sdp.getData(fn.getFileName());
+//            List<ValueData> list = sdp.getData(fn.getFileName());
+            
+            String query = "select s from Stock s where s.symbol = :symbol and s.date = (select max(ss.date) from Stock ss where ss.symbol = :ssymbol)";
+            Query q1 = em.createQuery(query);
+            q1.setParameter("symbol", symbol);
+            q1.setParameter("ssymbol", symbol);
+            Date date;
+            try {
+                Stock stk = (Stock) q1.getSingleResult();
+                date = stk.getDate();
+            } catch (NoResultException e) {
+                date = new Date(0, 0, 1); // 1-1-1900
+            }
+                        
+            List<ValueData> list = sdp.getData(symbol.getSymbol(), date, new Date(System.currentTimeMillis()));
 
             for(ValueData v : list) {
                 ValueDataStock vds = (ValueDataStock) v;

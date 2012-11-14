@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -78,6 +79,11 @@ public class PlainDataProvider implements IDataProvider {
             Logger.getLogger(PlainDataProvider.class.getName()).log(Level.SEVERE, null, ex);
         } 
         return list;
+    }
+
+    @Override
+    public List<ValueData> getData(String symbol, Date initDate, Date endDate) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

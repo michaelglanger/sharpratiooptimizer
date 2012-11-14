@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -75,6 +76,11 @@ public class StockDataProvider implements IDataProvider{
             Logger.getLogger(StockDataProvider.class.getName()).log(Level.SEVERE, null, ex);
         } 
         return list;
+    }
+
+    @Override
+    public List<ValueData> getData(String symbol, Date initDate, Date endDate) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

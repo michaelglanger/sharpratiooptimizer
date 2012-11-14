@@ -9,6 +9,27 @@
         <EqConfig name="ibm_nyse" startDate="20110101" endDate="20111231">
             <fileName>ibm</fileName>
         </EqConfig>
+        <EqConfig name="msft_nasdaq" startDate="20110101" endDate="20111231">
+            <fileName>msft</fileName>
+        </EqConfig>
+        <EqConfig name="ba_nyse" startDate="20110101" endDate="20111231">
+            <fileName>ba</fileName>
+        </EqConfig>
+        <EqConfig name="aapl_nasdaq" startDate="20110101" endDate="20111231">
+            <fileName>aapl</fileName>
+        </EqConfig>
+        <EqConfig name="apx_nyse" startDate="20110101" endDate="20111231">
+            <fileName>apx</fileName>
+        </EqConfig>
+        <EqConfig name="hpq_nyse" startDate="20110101" endDate="20111231">
+            <fileName>hpq</fileName>
+        </EqConfig>
+        <EqConfig name="ubs_nyse" startDate="20110101" endDate="20111231">
+            <fileName>ubs</fileName>
+        </EqConfig>
+        <EqConfig name="orcl_nasdaq" startDate="20110101" endDate="20111231">
+            <fileName>orcl</fileName>
+        </EqConfig>
     </eqConfigs>
     
 </EqFiles>

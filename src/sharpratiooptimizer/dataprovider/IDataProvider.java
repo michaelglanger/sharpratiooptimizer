@@ -4,6 +4,7 @@
  */
 package sharpratiooptimizer.dataprovider;
 
+import java.util.Date;
 import java.util.List;
 import sharpratiooptimizer.equity.Equity;
 import sharpratiooptimizer.equity.ValueData;
@@ -28,5 +29,7 @@ public interface IDataProvider {
     static final int YEAR = 0;
     
     public List<ValueData> getData(String eqName);
+    
+    public List<ValueData> getData(String symbol, Date initDate, Date endDate);
     
 }
