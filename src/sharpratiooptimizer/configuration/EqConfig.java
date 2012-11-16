@@ -14,6 +14,7 @@ public class EqConfig {
     private String fileName;
     private String startDate;
     private String endDate;
+    private String symbol;
 
     public String getName() {
         return name;
@@ -45,6 +46,14 @@ public class EqConfig {
 
     public void setEndDate(String endDate) {
         this.endDate = endDate;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
     
 }

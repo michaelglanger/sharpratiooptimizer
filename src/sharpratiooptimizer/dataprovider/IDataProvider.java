@@ -4,11 +4,9 @@
  */
 package sharpratiooptimizer.dataprovider;
 
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
-import sharpratiooptimizer.equity.Equity;
 import sharpratiooptimizer.equity.ValueData;
-import sharpratiooptimizer.equity.ValueDateSimple;
 
 /**
  *
@@ -30,6 +28,6 @@ public interface IDataProvider {
     
     public List<ValueData> getData(String eqName);
     
-    public List<ValueData> getData(String symbol, Date initDate, Date endDate);
+    public List<ValueData> getData(String symbol, Calendar initDate, Calendar endDate);
     
 }

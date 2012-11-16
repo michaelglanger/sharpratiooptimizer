@@ -36,7 +36,7 @@
             <description>Apple NASDAQ</description>
         </StockDescriptor>
         <StockDescriptor id='apx_nyse' market='nyse'>
-            <name>AXP</name>
+            <name>APX</name>
             <description>American Express NYSE</description>
         </StockDescriptor>
         <StockDescriptor id='hpq_nyse' market='nyse'>
@@ -49,7 +49,35 @@
         </StockDescriptor>
         <StockDescriptor id='orcl_nasdaq' market='nasdaq'>
             <name>ORCL</name>
-            <description>Oracle NYSE</description>
+            <description>Oracle NASDAQ</description>
+        </StockDescriptor>
+        <StockDescriptor id='intc_nasdaq' market='nasdaq'>
+            <name>INTC</name>
+            <description>Intel NASDAQ</description>
+        </StockDescriptor>
+        <StockDescriptor id='aa_nyse' market='nyse'>
+            <name>AA</name>
+            <description>Alcoa NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='bac_nyse' market='nyse'>
+            <name>BAC</name>
+            <description>Bank of America NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='cat_nyse' market='nyse'>
+            <name>CAT</name>
+            <description>Caterpillar NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='csco_nasdaq' market='nasdaq'>
+            <name>CSCO</name>
+            <description>Cisco NASDAQ</description>
+        </StockDescriptor>
+        <StockDescriptor id='cvx_nyse' market='nyse'>
+            <name>CVX</name>
+            <description>Chevron NYSE</description>
+        </StockDescriptor>
+         <StockDescriptor id='dis_nyse' market='nyse'>
+            <name>DIS</name>
+            <description>Disney NYSE</description>
         </StockDescriptor>
     </stockList>
 </Stocks>

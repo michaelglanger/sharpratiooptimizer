@@ -15,11 +15,13 @@ public class EqFileName {
     private File file;
     private String name;
     private String fileName;
+    private String symbol;
 
-    public EqFileName(String fileName, String name) {
+    public EqFileName(String fileName, String name, String symbol) {
         this.fileName = fileName;
         file = new File(fileName);
         this.name = name;
+        this.symbol = symbol;
     }
     
     public File getFile() {
@@ -40,6 +42,14 @@ public class EqFileName {
    
     public String getFileName() {
         return fileName;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
     
 }

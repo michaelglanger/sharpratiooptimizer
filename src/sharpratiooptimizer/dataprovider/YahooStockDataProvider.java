@@ -13,18 +13,12 @@ import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-import sharpratiooptimizer.data.Stock;
-import sharpratiooptimizer.data.Symbol;
 import sharpratiooptimizer.equity.ValueData;
 import sharpratiooptimizer.equity.ValueDataStock;
 
@@ -50,11 +44,11 @@ public class YahooStockDataProvider implements IDataProvider {
     }
     
     @Override
-    public List<ValueData> getData(String eqName, Date initDate, Date endDate) {
+    public List<ValueData> getData(String eqName, Calendar initDate, Calendar endDate) {
        return readFromYahoo(eqName, initDate, endDate);
     }
         
-    public List<ValueData> readFromYahoo(String symbol, Date initDate, Date endDate) {
+    public List<ValueData> readFromYahoo(String symbol, Calendar initDate, Calendar endDate) {
         List<ValueData> list = new ArrayList<ValueData>();
         BufferedReader in = null;
         try {
@@ -113,16 +107,16 @@ public class YahooStockDataProvider implements IDataProvider {
     }
     
     
-    public String createURL(String symbol, Date initDate, Date endDate) {
+    public String createURL(String symbol, Calendar initDate, Calendar endDate) {
         StringBuilder sb = new StringBuilder();
         
         sb.append(init).append(symbol)
-          .append(initMonth).append(initDate.getMonth())
-          .append(initDay).append(initDate.getDate())
-          .append(initYear) .append(normalizeYear(initDate.getYear()))
-          .append(endMonth).append(endDate.getMonth())
-          .append(endDay).append(endDate.getDate())
-          .append(endYear).append(normalizeYear(endDate.getYear()))
+          .append(initMonth).append(initDate.get(Calendar.MONTH))
+          .append(initDay).append(initDate.get(Calendar.DAY_OF_MONTH))
+          .append(initYear) .append(normalizeYear(initDate.get(Calendar.YEAR)))
+          .append(endMonth).append(endDate.get(Calendar.MONTH))
+          .append(endDay).append(endDate.get(Calendar.DAY_OF_MONTH))
+          .append(endYear).append(normalizeYear(endDate.get(Calendar.YEAR)))
           .append(end);
         
         return sb.toString();

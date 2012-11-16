@@ -4,6 +4,8 @@
  */
 package sharpratiooptimizer.portfolio;
 
+import java.util.HashMap;
+import java.util.Map;
 import sharpratiooptimizer.equity.EquityHelper;
 import sharpratiooptimizer.equity.Equity;
 
@@ -17,6 +19,7 @@ public class Portfolio {
     private int[] weighters;
     private double sharpRatio;
     private double profit;
+    private Map<Integer, Double> profitMap = new HashMap<Integer, Double>();
     
     public Portfolio(Equity[] eqs, int[] wts) {
         ll = eqs;
@@ -33,6 +36,9 @@ public class Portfolio {
         }
         sb.append("\nSharp Ratio: "+sharpRatio);
         sb.append("\nProfit : "+ profit);
+        sb.append("\nProfit 1 : "+ profitMap.get(new Integer(1)));
+        sb.append("\nProfit 3 : "+ profitMap.get(new Integer(3)));
+        sb.append("\nProfit 5 : "+ profitMap.get(new Integer(5)));
         return sb.toString();
     }
     
@@ -43,6 +49,9 @@ public class Portfolio {
     
     public double calculateProfit() {
         profit = PortfolioHelper.calculatePortfolioProfit(this);
+        profitMap.put(new Integer(1), PortfolioHelper.calculatePortfolioProfit(this, 1));
+        profitMap.put(new Integer(3), PortfolioHelper.calculatePortfolioProfit(this, 3));
+        profitMap.put(new Integer(5), PortfolioHelper.calculatePortfolioProfit(this, 5));
         return profit;
     }
     
@@ -64,6 +73,14 @@ public class Portfolio {
     
     public void setWeighters(int[] ws) {
         weighters = ws;
+    }
+
+    public Map<Integer, Double> getProfitMap() {
+        return profitMap;
+    }
+
+    public void setProfitMap(Map<Integer, Double> profitMap) {
+        this.profitMap = profitMap;
     }
     
 }

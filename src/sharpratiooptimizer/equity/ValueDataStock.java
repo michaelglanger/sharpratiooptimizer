@@ -86,6 +86,9 @@ public class ValueDataStock implements ValueData {
 
     public void setDate(Date date) {
         this.date = date;
+        GregorianCalendar gc = new GregorianCalendar();
+        gc.setTime(date);
+        iDate = gc.get(Calendar.YEAR)*10000 + gc.get(Calendar.MONTH)*100 + gc.get(Calendar.DAY_OF_MONTH);
     }
     
     public void setDate(int year, int month, int day) {
@@ -99,6 +102,11 @@ public class ValueDataStock implements ValueData {
 
     public void setiDate(int iDate) {
         this.iDate = iDate;
+    }
+
+    @Override
+    public BigDecimal getMainData() {
+        return adjclose;
     }
     
     

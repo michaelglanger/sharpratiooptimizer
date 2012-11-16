@@ -4,6 +4,7 @@
  */
 package sharpratiooptimizer.equity;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -52,6 +53,11 @@ public class ValueDateSimple implements ValueData {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public BigDecimal getMainData() {
+        return new BigDecimal(value);
     }
     
     

@@ -4,7 +4,9 @@
  */
 package sharpratiooptimizer.dataloader;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -120,9 +122,9 @@ public class StockDataLoader {
     }
     
     private void loadStocks() {
-        em.getTransaction().begin();
+        
         for (EqFileName fn : fileNames) {
-            
+        em.getTransaction().begin();    
             Query qs = em.createQuery("select s from Symbol s where s.symbol = :symbol");
             qs.setParameter("symbol", getSymbol(fn.getName()));
             Symbol symbol = (Symbol) qs.getSingleResult();
@@ -133,15 +135,16 @@ public class StockDataLoader {
             Query q1 = em.createQuery(query);
             q1.setParameter("symbol", symbol);
             q1.setParameter("ssymbol", symbol);
-            Date date;
+            Calendar date;
             try {
                 Stock stk = (Stock) q1.getSingleResult();
-                date = stk.getDate();
+                date = new GregorianCalendar();
+                date.setTime(stk.getDate());
             } catch (NoResultException e) {
-                date = new Date(0, 0, 1); // 1-1-1900
+                date = new GregorianCalendar(2000, 0, 1);
             }
                         
-            List<ValueData> list = sdp.getData(symbol.getSymbol(), date, new Date(System.currentTimeMillis()));
+            List<ValueData> list = sdp.getData(symbol.getSymbol(), date, new GregorianCalendar());
 
             for(ValueData v : list) {
                 ValueDataStock vds = (ValueDataStock) v;
@@ -173,8 +176,8 @@ public class StockDataLoader {
                 }
 
             }
-           
+           em.getTransaction().commit();
         }
-         em.getTransaction().commit();
+         
     }
 }

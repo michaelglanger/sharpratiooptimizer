@@ -30,7 +30,7 @@ public class ConfigurationHelper {
         
         List<EqFileName> result = new ArrayList<EqFileName>();
         for (EqConfig e : eqFiles.getEqConfigs()) {
-            EqFileName efn = new EqFileName(dataFolder+e.getFileName()+"."+fileFormat, e.getName());
+            EqFileName efn = new EqFileName(dataFolder+e.getFileName()+"."+fileFormat, e.getName(), e.getSymbol());
             result.add(efn);
         }
         return result;

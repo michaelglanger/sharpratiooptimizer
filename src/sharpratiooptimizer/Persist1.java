@@ -13,9 +13,6 @@ import sharpratiooptimizer.dataprovider.YahooStockDataProvider;
  * @author axjyb
  */
 public class Persist1 {
-    
-   private static final String PERSISTENCE_UNIT_NAME = "SharpRatioOptimizerPU";
-  private static EntityManagerFactory factory;
 
   public static void main(String[] args) {
       

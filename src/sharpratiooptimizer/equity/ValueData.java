@@ -4,10 +4,13 @@
  */
 package sharpratiooptimizer.equity;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author axjyb
  */
 public interface ValueData {
     public int getiDate();
+    public BigDecimal getMainData();
 }

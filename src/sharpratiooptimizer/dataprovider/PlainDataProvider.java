@@ -9,13 +9,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sharpratiooptimizer.SharpRatioOptimizer;
+import sharpratiooptimizer.strategy.SharpRatioOptimizer;
 import sharpratiooptimizer.configuration.ConfigurationHelper;
 import sharpratiooptimizer.configuration.EqFileName;
 import sharpratiooptimizer.equity.ValueData;
@@ -82,7 +83,7 @@ public class PlainDataProvider implements IDataProvider {
     }
 
     @Override
-    public List<ValueData> getData(String symbol, Date initDate, Date endDate) {
+    public List<ValueData> getData(String symbol, Calendar initDate, Calendar endDate) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

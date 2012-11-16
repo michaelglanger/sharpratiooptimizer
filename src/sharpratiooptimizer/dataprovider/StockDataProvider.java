@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -79,7 +80,7 @@ public class StockDataProvider implements IDataProvider{
     }
 
     @Override
-    public List<ValueData> getData(String symbol, Date initDate, Date endDate) {
+    public List<ValueData> getData(String symbol, Calendar initDate, Calendar endDate) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
