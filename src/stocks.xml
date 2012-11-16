@@ -79,5 +79,13 @@
             <name>DIS</name>
             <description>Disney NYSE</description>
         </StockDescriptor>
+        <StockDescriptor id='jnj_nyse' market='nyse'>
+            <name>JNJ</name>
+            <description>Johnson Johnson NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='hd_nyse' market='nyse'>
+            <name>HD</name>
+            <description>Home Depot NYSE</description>
+        </StockDescriptor>
     </stockList>
 </Stocks>

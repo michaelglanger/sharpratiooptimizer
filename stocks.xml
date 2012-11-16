@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<Stocks>
+    <markets>
+        <MarketDescriptor id="nasdaqnm">
+            <name>NasdaqNM</name>
+        </MarketDescriptor>
+        <MarketDescriptor id="nyse">
+            <name>NYSE</name>
+        </MarketDescriptor>
+    </markets>
+    <stockList>
+        <StockDescriptor id="nasdaqnm_nasdaqnm" market="NasdaqNM">
+            <name>MSFT</name>
+        </StockDescriptor>
+        <StockDescriptor id="nasdaqnm_nasdaqnm" market="NasdaqNM">
+            <name>INTC</name>
+        </StockDescriptor>
+        <StockDescriptor id="nyse_nyse" market="NYSE">
+            <name>HPQ</name>
+        </StockDescriptor>
+    </stockList>
+</Stocks>

@@ -67,6 +67,10 @@
             <fileName>dis</fileName>
             <symbol>DIS</symbol>
         </EqConfig>
+        <EqConfig name="jnj_nyse" startDate="20110101" endDate="20111231">
+            <fileName>jnj</fileName>
+            <symbol>JNJ</symbol>
+        </EqConfig>
     </eqConfigs>
     
 </EqFiles>

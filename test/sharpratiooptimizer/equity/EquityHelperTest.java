@@ -43,13 +43,13 @@ public class EquityHelperTest {
      */
     @Test
     public void testReadFromFile_String() {
-        System.out.println("readFromFile");
-        String fileName = "";
-        EquityHelper instance = new EquityHelper();
-        List expResult = null;
-        List result = instance.readFromFile(fileName);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
+//        System.out.println("readFromFile");
+//        String fileName = "";
+//        EquityHelper instance = new EquityHelper();
+//        List expResult = null;
+//        List result = instance.readFromFile(fileName);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
@@ -58,12 +58,12 @@ public class EquityHelperTest {
      */
     @Test
     public void testReadFromFile_File() {
-        System.out.println("readFromFile");
-        File file = null;
-        EquityHelper instance = new EquityHelper();
-        List expResult = null;
-        List result = instance.readFromFile(file);
-        assertEquals(expResult, result);
+//        System.out.println("readFromFile");
+//        File file = null;
+//        EquityHelper instance = new EquityHelper();
+//        List expResult = null;
+//        List result = instance.readFromFile(file);
+//        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -73,12 +73,12 @@ public class EquityHelperTest {
      */
     @Test
     public void testGetDailyReturn() {
-        System.out.println("getDailyReturn");
-        List<ValueDateSimple> input = null;
-        EquityHelper instance = new EquityHelper();
-        List expResult = null;
-        List result = instance.getDailyReturn(input);
-        assertEquals(expResult, result);
+//        System.out.println("getDailyReturn");
+//        List<ValueDateSimple> input = null;
+//        EquityHelper instance = new EquityHelper();
+//        List expResult = null;
+//        List result = instance.getDailyReturn(input);
+//        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
