@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Stocks>
+    <markets>
+        <MarketDescriptor id='nyse'>
+            <name>NYSE</name>
+            <location>USA</location>
+        </MarketDescriptor>
+        <MarketDescriptor id='nasdaq'>
+            <name>NASDAQ</name>
+            <location>USA</location>
+        </MarketDescriptor>
+        <MarketDescriptor id='xetra'>
+            <name>XETRA</name>
+            <location>Europa</location>
+        </MarketDescriptor>
+    </markets>
+    <stockList>
+        <StockDescriptor id='ge_nyse' market='nyse'>
+            <name>GE</name>
+            <description>General Electrics NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='ibm_nyse' market='nyse'>
+            <name>IBM</name>
+            <description>IBM NYSE</description>
+        </StockDescriptor>
+         <StockDescriptor id='msft_nasdaq' market='nasdaq'>
+            <name>MSFT</name>
+            <description>Microsoft Corporation NASDAQ</description>
+        </StockDescriptor>
+         <StockDescriptor id='ba_nyse' market='nyse'>
+            <name>BA</name>
+            <description>Boeing NYSE</description>
+        </StockDescriptor>
+         <StockDescriptor id='aapl_nasdaq' market='nasdaq'>
+            <name>AAPL</name>
+            <description>Apple NASDAQ</description>
+        </StockDescriptor>
+        <StockDescriptor id='apx_nyse' market='nyse'>
+            <name>APX</name>
+            <description>American Express NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='hpq_nyse' market='nyse'>
+            <name>HPQ</name>
+            <description>Hewlett Packard NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='ubs_nyse' market='nyse'>
+            <name>UBS</name>
+            <description>UBS NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='orcl_nasdaq' market='nasdaq'>
+            <name>ORCL</name>
+            <description>Oracle NASDAQ</description>
+        </StockDescriptor>
+        <StockDescriptor id='intc_nasdaq' market='nasdaq'>
+            <name>INTC</name>
+            <description>Intel NASDAQ</description>
+        </StockDescriptor>
+        <StockDescriptor id='aa_nyse' market='nyse'>
+            <name>AA</name>
+            <description>Alcoa NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='bac_nyse' market='nyse'>
+            <name>BAC</name>
+            <description>Bank of America NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='cat_nyse' market='nyse'>
+            <name>CAT</name>
+            <description>Caterpillar NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='csco_nasdaq' market='nasdaq'>
+            <name>CSCO</name>
+            <description>Cisco NASDAQ</description>
+        </StockDescriptor>
+        <StockDescriptor id='cvx_nyse' market='nyse'>
+            <name>CVX</name>
+            <description>Chevron NYSE</description>
+        </StockDescriptor>
+         <StockDescriptor id='dis_nyse' market='nyse'>
+            <name>DIS</name>
+            <description>Disney NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='jnj_nyse' market='nyse'>
+            <name>JNJ</name>
+            <description>Johnson Johnson NYSE</description>
+        </StockDescriptor>
+        <StockDescriptor id='hd_nyse' market='nyse'>
+            <name>HD</name>
+            <description>Home Depot NYSE</description>
+        </StockDescriptor>
+    </stockList>
+</Stocks>

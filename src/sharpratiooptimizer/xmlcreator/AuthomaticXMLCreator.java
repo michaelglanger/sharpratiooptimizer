@@ -15,13 +15,14 @@ import java.net.Proxy;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import sharpratiooptimizer.configuration.EqConfig;
+import sharpratiooptimizer.configuration.EqFiles;
 import sharpratiooptimizer.configuration.MarketDescriptor;
 import sharpratiooptimizer.configuration.StockDescriptor;
 import sharpratiooptimizer.configuration.Stocks;
@@ -34,7 +35,7 @@ import sharpratiooptimizer.dataprovider.YahooStockDataProvider;
 public class AuthomaticXMLCreator {
 
     private static final String init = "http://finance.yahoo.com/d/quotes.csv?s=";
-    private static final String end = "&f=snx";
+    private static final String end = "&f=sx";
 
     public String createURL() {
         ResourceBundle rb = ResourceBundle.getBundle("symbols");
@@ -61,7 +62,7 @@ public class AuthomaticXMLCreator {
             URL oracle = new URL(url);
             Proxy p = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy.ict", 8080));
 
-            yc = oracle.openConnection(p);
+            yc = oracle.openConnection();
         } catch (IOException ex) {
             Logger.getLogger(YahooStockDataProvider.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -81,7 +82,7 @@ public class AuthomaticXMLCreator {
                 System.out.println(inputLine);
                 String[] ss = inputLine.split(",");
                 
-                String isin = ss[2].replaceAll("\"", "");
+                String isin = ss[1].replaceAll("\"", "");
                 if (map.containsKey(isin)) {
                     map.get(isin).add(ss[0].replaceAll("\"", ""));
                 } else {
@@ -113,6 +114,10 @@ public class AuthomaticXMLCreator {
         stocks.setMarkets(mds);
         stocks.setStockList(sdr);
         
+        EqFiles eqf = new EqFiles();
+        List<EqConfig> eqcs = new ArrayList<EqConfig>();
+        eqf.setEqConfigs(eqcs);
+        
         for (String s : map.keySet()) {
             MarketDescriptor md = new MarketDescriptor();
             md.setName(s);
@@ -126,8 +131,16 @@ public class AuthomaticXMLCreator {
                 sd.setName(ss);
                 sd.setId((ss+"_"+s).toLowerCase());
                 sdr.add(sd);
+                
+                EqConfig ec = new EqConfig();
+                ec.setName((ss+"_"+s).toLowerCase());
+                ec.setSymbol(ss);
+                eqcs.add(ec);
             }
         }
+        
+        
+        
         
         XStream xstream = new XStream(new StaxDriver());
         xstream.alias("Stocks", Stocks.class);
@@ -137,10 +150,19 @@ public class AuthomaticXMLCreator {
         xstream.useAttributeFor(StockDescriptor.class, "id");
         xstream.useAttributeFor(StockDescriptor.class, "market");
         
+        xstream.alias("EqFiles", EqFiles.class);
+        xstream.alias("EqConfig", EqConfig.class);
+        xstream.useAttributeFor(EqConfig.class, "name");
+        xstream.useAttributeFor(EqConfig.class, "startDate");
+        xstream.useAttributeFor(EqConfig.class, "endDate");
+        
         FileWriter fw;
         try {
-            fw = new FileWriter("./src/stocks2.xml");
+            fw = new FileWriter("./src/stocks.xml");
             xstream.toXML(stocks, fw);
+            
+            fw = new FileWriter("./src/EqConfigFile.xml");
+            xstream.toXML(eqf, fw);
         } catch (IOException ex) {
             Logger.getLogger(AuthomaticXMLCreator.class.getName()).log(Level.SEVERE, null, ex);
         }

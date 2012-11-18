@@ -1,76 +1,185 @@
 <?xml version="1.0" ?>
 <EqFiles>
-    <dataFolder>data/</dataFolder>
-    <fileFormat>csv</fileFormat>
     <eqConfigs>
-        <EqConfig name="ge_nyse" startDate="20110101" endDate="20111231">
-            <fileName>ge2</fileName>
-            <symbol>GE</symbol>
+        <EqConfig name="ads.de_xetra">
+            <symbol>ADS.DE</symbol>
         </EqConfig>
-        <EqConfig name="ibm_nyse" startDate="20110101" endDate="20111231">
-            <fileName>ibm</fileName>
-            <symbol>IBM</symbol>
+        <EqConfig name="alv.de_xetra">
+            <symbol>ALV.DE</symbol>
         </EqConfig>
-        <EqConfig name="msft_nasdaq" startDate="20110101" endDate="20111231">
-            <fileName>msft</fileName>
-            <symbol>MSFT</symbol>
+        <EqConfig name="bas.de_xetra">
+            <symbol>BAS.DE</symbol>
         </EqConfig>
-        <EqConfig name="ba_nyse" startDate="20110101" endDate="20111231">
-            <fileName>ba</fileName>
-            <symbol>BA</symbol>
+        <EqConfig name="bayn.de_xetra">
+            <symbol>BAYN.DE</symbol>
         </EqConfig>
-        <EqConfig name="aapl_nasdaq" startDate="20110101" endDate="20111231">
-            <fileName>aapl</fileName>
-            <symbol>AAPL</symbol>
+        <EqConfig name="bei.de_xetra">
+            <symbol>BEI.DE</symbol>
         </EqConfig>
-        <EqConfig name="apx_nyse" startDate="20110101" endDate="20111231">
-            <fileName>apx</fileName>
-            <symbol>APX</symbol>
+        <EqConfig name="bmw.de_xetra">
+            <symbol>BMW.DE</symbol>
         </EqConfig>
-        <EqConfig name="hpq_nyse" startDate="20110101" endDate="20111231">
-            <fileName>hpq</fileName>
-            <symbol>HPQ</symbol>
+        <EqConfig name="cbk.de_xetra">
+            <symbol>CBK.DE</symbol>
         </EqConfig>
-        <EqConfig name="ubs_nyse" startDate="20110101" endDate="20111231">
-            <fileName>ubs</fileName>
-            <symbol>UBS</symbol>
+        <EqConfig name="con.de_xetra">
+            <symbol>CON.DE</symbol>
         </EqConfig>
-        <EqConfig name="orcl_nasdaq" startDate="20110101" endDate="20111231">
-            <fileName>orcl</fileName>
-            <symbol>ORCL</symbol>
+        <EqConfig name="dai.de_xetra">
+            <symbol>DAI.DE</symbol>
         </EqConfig>
-        <EqConfig name="intc_nasdaq" startDate="20110101" endDate="20111231">
-            <fileName>intc</fileName>
-            <symbol>INTC</symbol>
+        <EqConfig name="db1.de_xetra">
+            <symbol>DB1.DE</symbol>
         </EqConfig>
-        <EqConfig name="aa_nyse" startDate="20110101" endDate="20111231">
-            <fileName>aa</fileName>
-            <symbol>AA</symbol>
+        <EqConfig name="dbk.de_xetra">
+            <symbol>DBK.DE</symbol>
         </EqConfig>
-        <EqConfig name="bac_nyse" startDate="20110101" endDate="20111231">
-            <fileName>bac</fileName>
-            <symbol>BAC</symbol>
+        <EqConfig name="dpw.de_xetra">
+            <symbol>DPW.DE</symbol>
         </EqConfig>
-        <EqConfig name="cat_nyse" startDate="20110101" endDate="20111231">
-            <fileName>cat</fileName>
-            <symbol>CAT</symbol>
+        <EqConfig name="dte.de_xetra">
+            <symbol>DTE.DE</symbol>
         </EqConfig>
-          <EqConfig name="csco_nasdaq" startDate="20110101" endDate="20111231">
-            <fileName>csco</fileName>
+        <EqConfig name="eoan.de_xetra">
+            <symbol>EOAN.DE</symbol>
+        </EqConfig>
+        <EqConfig name="fme.de_xetra">
+            <symbol>FME.DE</symbol>
+        </EqConfig>
+        <EqConfig name="fre.de_xetra">
+            <symbol>FRE.DE</symbol>
+        </EqConfig>
+        <EqConfig name="hei.de_xetra">
+            <symbol>HEI.DE</symbol>
+        </EqConfig>
+        <EqConfig name="hen3.de_xetra">
+            <symbol>HEN3.DE</symbol>
+        </EqConfig>
+        <EqConfig name="ifx.de_xetra">
+            <symbol>IFX.DE</symbol>
+        </EqConfig>
+        <EqConfig name="lha.de_xetra">
+            <symbol>LHA.DE</symbol>
+        </EqConfig>
+        <EqConfig name="lin.de_xetra">
+            <symbol>LIN.DE</symbol>
+        </EqConfig>
+        <EqConfig name="lxs.de_xetra">
+            <symbol>LXS.DE</symbol>
+        </EqConfig>
+        <EqConfig name="mrk.de_xetra">
+            <symbol>MRK.DE</symbol>
+        </EqConfig>
+        <EqConfig name="muv2.de_xetra">
+            <symbol>MUV2.DE</symbol>
+        </EqConfig>
+        <EqConfig name="rwe.de_xetra">
+            <symbol>RWE.DE</symbol>
+        </EqConfig>
+        <EqConfig name="sap.de_xetra">
+            <symbol>SAP.DE</symbol>
+        </EqConfig>
+        <EqConfig name="sdf.de_xetra">
+            <symbol>SDF.DE</symbol>
+        </EqConfig>
+        <EqConfig name="sie.de_xetra">
+            <symbol>SIE.DE</symbol>
+        </EqConfig>
+        <EqConfig name="tka.de_xetra">
+            <symbol>TKA.DE</symbol>
+        </EqConfig>
+        <EqConfig name="vow3.de_xetra">
+            <symbol>VOW3.DE</symbol>
+        </EqConfig>
+        <EqConfig name="csco_nasdaqnm">
             <symbol>CSCO</symbol>
         </EqConfig>
-        <EqConfig name="cvx_nyse" startDate="20110101" endDate="20111231">
-            <fileName>cvx</fileName>
+        <EqConfig name="intc_nasdaqnm">
+            <symbol>INTC</symbol>
+        </EqConfig>
+        <EqConfig name="msft_nasdaqnm">
+            <symbol>MSFT</symbol>
+        </EqConfig>
+        <EqConfig name="aa_nyse">
+            <symbol>AA</symbol>
+        </EqConfig>
+        <EqConfig name="axp_nyse">
+            <symbol>AXP</symbol>
+        </EqConfig>
+        <EqConfig name="ba_nyse">
+            <symbol>BA</symbol>
+        </EqConfig>
+        <EqConfig name="bac_nyse">
+            <symbol>BAC</symbol>
+        </EqConfig>
+        <EqConfig name="cat_nyse">
+            <symbol>CAT</symbol>
+        </EqConfig>
+        <EqConfig name="cvx_nyse">
             <symbol>CVX</symbol>
         </EqConfig>
-        <EqConfig name="dis_nyse" startDate="20110101" endDate="20111231">
-            <fileName>dis</fileName>
+        <EqConfig name="dd_nyse">
+            <symbol>DD</symbol>
+        </EqConfig>
+        <EqConfig name="dis_nyse">
             <symbol>DIS</symbol>
         </EqConfig>
-        <EqConfig name="jnj_nyse" startDate="20110101" endDate="20111231">
-            <fileName>jnj</fileName>
+        <EqConfig name="ge_nyse">
+            <symbol>GE</symbol>
+        </EqConfig>
+        <EqConfig name="hd_nyse">
+            <symbol>HD</symbol>
+        </EqConfig>
+        <EqConfig name="hpq_nyse">
+            <symbol>HPQ</symbol>
+        </EqConfig>
+        <EqConfig name="ibm_nyse">
+            <symbol>IBM</symbol>
+        </EqConfig>
+        <EqConfig name="jnj_nyse">
             <symbol>JNJ</symbol>
         </EqConfig>
+        <EqConfig name="jpm_nyse">
+            <symbol>JPM</symbol>
+        </EqConfig>
+        <EqConfig name="ko_nyse">
+            <symbol>KO</symbol>
+        </EqConfig>
+        <EqConfig name="mcd_nyse">
+            <symbol>MCD</symbol>
+        </EqConfig>
+        <EqConfig name="mmm_nyse">
+            <symbol>MMM</symbol>
+        </EqConfig>
+        <EqConfig name="mrk_nyse">
+            <symbol>MRK</symbol>
+        </EqConfig>
+        <EqConfig name="pfe_nyse">
+            <symbol>PFE</symbol>
+        </EqConfig>
+        <EqConfig name="pg_nyse">
+            <symbol>PG</symbol>
+        </EqConfig>
+        <EqConfig name="t_nyse">
+            <symbol>T</symbol>
+        </EqConfig>
+        <EqConfig name="trv_nyse">
+            <symbol>TRV</symbol>
+        </EqConfig>
+        <EqConfig name="unh_nyse">
+            <symbol>UNH</symbol>
+        </EqConfig>
+        <EqConfig name="utx_nyse">
+            <symbol>UTX</symbol>
+        </EqConfig>
+        <EqConfig name="vz_nyse">
+            <symbol>VZ</symbol>
+        </EqConfig>
+        <EqConfig name="wmt_nyse">
+            <symbol>WMT</symbol>
+        </EqConfig>
+        <EqConfig name="xom_nyse">
+            <symbol>XOM</symbol>
+        </EqConfig>
     </eqConfigs>
-    
 </EqFiles>

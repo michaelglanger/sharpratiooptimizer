@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<EqFiles>
+    <dataFolder>data/</dataFolder>
+    <fileFormat>csv</fileFormat>
+    <eqConfigs>
+        <EqConfig name="ge_nyse" startDate="20110101" endDate="20111231">
+            <fileName>ge2</fileName>
+            <symbol>GE</symbol>
+        </EqConfig>
+        <EqConfig name="ibm_nyse" startDate="20110101" endDate="20111231">
+            <fileName>ibm</fileName>
+            <symbol>IBM</symbol>
+        </EqConfig>
+        <EqConfig name="msft_nasdaq" startDate="20110101" endDate="20111231">
+            <fileName>msft</fileName>
+            <symbol>MSFT</symbol>
+        </EqConfig>
+        <EqConfig name="ba_nyse" startDate="20110101" endDate="20111231">
+            <fileName>ba</fileName>
+            <symbol>BA</symbol>
+        </EqConfig>
+        <EqConfig name="aapl_nasdaq" startDate="20110101" endDate="20111231">
+            <fileName>aapl</fileName>
+            <symbol>AAPL</symbol>
+        </EqConfig>
+        <EqConfig name="apx_nyse" startDate="20110101" endDate="20111231">
+            <fileName>apx</fileName>
+            <symbol>APX</symbol>
+        </EqConfig>
+        <EqConfig name="hpq_nyse" startDate="20110101" endDate="20111231">
+            <fileName>hpq</fileName>
+            <symbol>HPQ</symbol>
+        </EqConfig>
+        <EqConfig name="ubs_nyse" startDate="20110101" endDate="20111231">
+            <fileName>ubs</fileName>
+            <symbol>UBS</symbol>
+        </EqConfig>
+        <EqConfig name="orcl_nasdaq" startDate="20110101" endDate="20111231">
+            <fileName>orcl</fileName>
+            <symbol>ORCL</symbol>
+        </EqConfig>
+        <EqConfig name="intc_nasdaq" startDate="20110101" endDate="20111231">
+            <fileName>intc</fileName>
+            <symbol>INTC</symbol>
+        </EqConfig>
+        <EqConfig name="aa_nyse" startDate="20110101" endDate="20111231">
+            <fileName>aa</fileName>
+            <symbol>AA</symbol>
+        </EqConfig>
+        <EqConfig name="bac_nyse" startDate="20110101" endDate="20111231">
+            <fileName>bac</fileName>
+            <symbol>BAC</symbol>
+        </EqConfig>
+        <EqConfig name="cat_nyse" startDate="20110101" endDate="20111231">
+            <fileName>cat</fileName>
+            <symbol>CAT</symbol>
+        </EqConfig>
+          <EqConfig name="csco_nasdaq" startDate="20110101" endDate="20111231">
+            <fileName>csco</fileName>
+            <symbol>CSCO</symbol>
+        </EqConfig>
+        <EqConfig name="cvx_nyse" startDate="20110101" endDate="20111231">
+            <fileName>cvx</fileName>
+            <symbol>CVX</symbol>
+        </EqConfig>
+        <EqConfig name="dis_nyse" startDate="20110101" endDate="20111231">
+            <fileName>dis</fileName>
+            <symbol>DIS</symbol>
+        </EqConfig>
+        <EqConfig name="jnj_nyse" startDate="20110101" endDate="20111231">
+            <fileName>jnj</fileName>
+            <symbol>JNJ</symbol>
+        </EqConfig>
+    </eqConfigs>
+    
+</EqFiles>

@@ -128,7 +128,7 @@ public class YahooStockDataProvider implements IDataProvider {
             URL oracle = new URL(url);
             Proxy p = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy.ict", 8080));
               
-            yc = oracle.openConnection(p);
+            yc = oracle.openConnection();
         } catch (IOException ex) {
             Logger.getLogger(YahooStockDataProvider.class.getName()).log(Level.SEVERE, null, ex);
         } 

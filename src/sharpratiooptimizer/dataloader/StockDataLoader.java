@@ -50,14 +50,17 @@ public class StockDataLoader {
     }
     
     public void loadData() {
-        stocks = ConfigurationHelper.loadStocksConfiguration();
-        loadMarkets();
-        loadSymbols();
-        
-        fileNames = ConfigurationHelper.loadConfiguration();
-        
-        loadStocks();
-        em.close();
+        try {
+            stocks = ConfigurationHelper.loadStocksConfiguration();
+            loadMarkets();
+            loadSymbols();
+
+            fileNames = ConfigurationHelper.loadConfiguration();
+
+            loadStocks();
+        } finally {
+            em.close();
+        }
     }
     
     private void loadMarkets() {
@@ -149,6 +152,7 @@ public class StockDataLoader {
             for(ValueData v : list) {
                 ValueDataStock vds = (ValueDataStock) v;
                 StringBuilder sb = new StringBuilder();
+                sb.append(symbol.getSymbol()).append(" ");
                 sb.append(vds.getDate().toString()).append(" ");
                 sb.append(vds.getOpen().toString()).append(" ");
                 sb.append(vds.getHigh().toString()).append(" ");

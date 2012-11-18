@@ -4,7 +4,6 @@
  */
 package sharpratiooptimizer;
 
-import javax.persistence.EntityManagerFactory;
 import sharpratiooptimizer.dataloader.StockDataLoader;
 import sharpratiooptimizer.dataprovider.YahooStockDataProvider;
 

@@ -11,6 +11,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -35,7 +36,7 @@ public class Market implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "ID")
-    @GeneratedValue 
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_market")
     private Long id;
     @Column(name = "MARKET_NAME")
     private String marketName;
