@@ -6,7 +6,7 @@ package sharpratiooptimizer.strategy;
 
 import com.google.inject.AbstractModule;
 import java.util.Comparator;
-import sharpratiooptimizer.strategy.comparators.SharpProfitBackComparator4;
+import sharpratiooptimizer.strategy.comparators.SharpProfitBackComparator3;
 import sharpratiooptimizer.strategy.sharpRatio.SharpRatioStrategy2;
 
 /**
@@ -17,7 +17,7 @@ public class StrategyModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        bind(Comparator.class).to(SharpProfitBackComparator4.class);
+        bind(Comparator.class).to(SharpProfitBackComparator3.class);
         bind(IStrategy.class).to(SharpRatioStrategy2.class);
     }
     

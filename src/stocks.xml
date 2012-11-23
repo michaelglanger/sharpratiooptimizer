@@ -66,9 +66,11 @@
         <StockDescriptor id="hen3.de_xetra" market="XETRA">
             <name>HEN3.DE</name>
         </StockDescriptor>
+        <!--  
         <StockDescriptor id="ifx.de_xetra" market="XETRA">
             <name>IFX.DE</name>
         </StockDescriptor>
+        -->
         <StockDescriptor id="lha.de_xetra" market="XETRA">
             <name>LHA.DE</name>
         </StockDescriptor>

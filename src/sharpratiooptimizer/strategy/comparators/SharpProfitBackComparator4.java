@@ -37,12 +37,12 @@ public class SharpProfitBackComparator4 implements Comparator<Portfolio> {
                 ) {
             return 1;
         } 
-        else if ( up(o2, o1) &&
-               o2.getProfitMap().get(1) <= minProfit1 &&
-               o2.getProfitMap().get(3) <= minProfit3 &&
-               o2.getProfitMap().get(5) <= minProfit5) {
-            return -1;
-        }
+//        else if ( up(o2, o1) &&
+//               o2.getProfitMap().get(1) <= minProfit1 &&
+//               o2.getProfitMap().get(3) <= minProfit3 &&
+//               o2.getProfitMap().get(5) <= minProfit5) {
+//            return -1;
+//        }
         return 0;
     }
     

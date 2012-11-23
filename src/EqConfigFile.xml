@@ -55,9 +55,11 @@
         <EqConfig name="hen3.de_xetra">
             <symbol>HEN3.DE</symbol>
         </EqConfig>
+        <!--  
         <EqConfig name="ifx.de_xetra">
             <symbol>IFX.DE</symbol>
         </EqConfig>
+        -->
         <EqConfig name="lha.de_xetra">
             <symbol>LHA.DE</symbol>
         </EqConfig>

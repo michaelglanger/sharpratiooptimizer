@@ -63,7 +63,7 @@ public class EquityHelper {
     }
 
     public int[] shiftWeighters(int[] input, int delta, int sumValue) {
-        float changeRatio = 0.3f;
+        float changeRatio = 0.5f;
         int[] result = new int[input.length];
 
         double[] intermediate = new double[input.length];

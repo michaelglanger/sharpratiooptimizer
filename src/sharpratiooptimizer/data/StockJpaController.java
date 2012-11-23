@@ -122,29 +122,29 @@ public class StockJpaController implements Serializable {
         }
     }
 
-    public List<Stock> findStockEntities() {
-        return findStockEntities(true, -1, -1);
-    }
+//    public List<Stock> findStockEntities() {
+//        return findStockEntities(true, -1, -1);
+//    }
+//
+//    public List<Stock> findStockEntities(int maxResults, int firstResult) {
+//        return findStockEntities(false, maxResults, firstResult);
+//    }
 
-    public List<Stock> findStockEntities(int maxResults, int firstResult) {
-        return findStockEntities(false, maxResults, firstResult);
-    }
-
-    private List<Stock> findStockEntities(boolean all, int maxResults, int firstResult) {
-        EntityManager em = getEntityManager();
-        try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Stock.class));
-            Query q = em.createQuery(cq);
-            if (!all) {
-                q.setMaxResults(maxResults);
-                q.setFirstResult(firstResult);
-            }
-            return q.getResultList();
-        } finally {
-            em.close();
-        }
-    }
+//    private List<Stock> findStockEntities(boolean all, int maxResults, int firstResult) {
+//        EntityManager em = getEntityManager();
+//        try {
+//            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+//            cq.select(cq.from(Stock.class));
+//            Query q = em.createQuery(cq);
+//            if (!all) {
+//                q.setMaxResults(maxResults);
+//                q.setFirstResult(firstResult);
+//            }
+//            return q.getResultList();
+//        } finally {
+//            em.close();
+//        }
+//    }
 
     public Stock findStock(Long id) {
         EntityManager em = getEntityManager();
@@ -155,17 +155,17 @@ public class StockJpaController implements Serializable {
         }
     }
 
-    public int getStockCount() {
-        EntityManager em = getEntityManager();
-        try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Stock> rt = cq.from(Stock.class);
-            cq.select(em.getCriteriaBuilder().count(rt));
-            Query q = em.createQuery(cq);
-            return ((Long) q.getSingleResult()).intValue();
-        } finally {
-            em.close();
-        }
-    }
+//    public int getStockCount() {
+//        EntityManager em = getEntityManager();
+//        try {
+//            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+//            Root<Stock> rt = cq.from(Stock.class);
+//            cq.select(em.getCriteriaBuilder().count(rt));
+//            Query q = em.createQuery(cq);
+//            return ((Long) q.getSingleResult()).intValue();
+//        } finally {
+//            em.close();
+//        }
+//    }
     
 }
