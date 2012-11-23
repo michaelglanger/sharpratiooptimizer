@@ -4,7 +4,6 @@
  */
 package sharpratiooptimizer.equity;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -29,13 +28,14 @@ public class Equity {
     }
     
     public void calculateDailyReturns() {
-        dailyReturn = EquityHelper.getDailyReturn(list);
-        dReturns = EquityHelper.calculateDailyReturn(list);
+        EquityHelper eh = new EquityHelper();
+        dailyReturn = eh.getDailyReturn(list);
+        dReturns = eh.calculateDailyReturn(list);
     }
     
     public double calculateSharpRatio() {
-        sharpRatio = EquityHelper.getSharpRatio(dailyReturn);
-        return getSharpRatio();
+        sharpRatio = new EquityHelper().getSharpRatio(dailyReturn);
+        return sharpRatio;
     }
 
     public double getSharpRatio() {

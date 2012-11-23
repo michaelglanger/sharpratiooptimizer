@@ -5,11 +5,12 @@
     <class>sharpratiooptimizer.data.Market</class>
     <class>sharpratiooptimizer.data.Stock</class>
     <class>sharpratiooptimizer.data.Symbol</class>
+    <shared-cache-mode>ALL</shared-cache-mode>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sharpoptimizer"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/mgl"/>
       <property name="javax.persistence.jdbc.password" value="222222"/>
-      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
-      <property name="javax.persistence.jdbc.user" value="mgl"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="postgres"/>
       <property name="eclipselink.ddl-generation" value="create-tables"/>
     </properties>
   </persistence-unit>

@@ -11,7 +11,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,6 +20,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.eclipse.persistence.annotations.Cache;
+import org.eclipse.persistence.annotations.CacheCoordinationType;
+import org.eclipse.persistence.annotations.CacheType;
 
 /**
  *
@@ -33,12 +35,18 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Symbol.findAll", query = "SELECT s FROM Symbol s"),
     @NamedQuery(name = "Symbol.findById", query = "SELECT s FROM Symbol s WHERE s.id = :id"),
     @NamedQuery(name = "Symbol.findBySymbol", query = "SELECT s FROM Symbol s WHERE s.symbol = :symbol")})
+@Cache(
+  type=CacheType.SOFT,
+  size=1000,  
+  expiry=36000000,  // 10 minutes
+  coordinationType=CacheCoordinationType.INVALIDATE_CHANGED_OBJECTS  
+)
 public class Symbol implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "ID")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_symbol")
+    @GeneratedValue
     private Long id;
     @Basic(optional = false)
     @Column(name = "SYMBOL")

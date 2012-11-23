@@ -5,7 +5,6 @@
 package sharpratiooptimizer.dataloader;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -32,12 +31,12 @@ import sharpratiooptimizer.equity.ValueDataStock;
  */
 public class StockDataLoader {
     
-    private String PERSISTENCE_UNIT_NAME = "SharpRatioOptimizerPU";
-    private EntityManagerFactory factory;
-    private EntityManager em;
-    private Stocks stocks;
-    private List<EqFileName> fileNames;
-    private IDataProvider sdp;
+    protected String PERSISTENCE_UNIT_NAME = "SharpRatioOptimizerPU";
+    protected EntityManagerFactory factory;
+    protected EntityManager em;
+    protected Stocks stocks;
+    protected List<EqFileName> fileNames;
+    protected IDataProvider sdp;
     
     public StockDataLoader() {
         this(new StockDataProvider());
@@ -59,8 +58,12 @@ public class StockDataLoader {
 
             loadStocks();
         } finally {
-            em.close();
+            closeEntityManager();
         }
+    }
+    
+    protected void closeEntityManager() {
+        em.close();
     }
     
     private void loadMarkets() {
@@ -115,7 +118,7 @@ public class StockDataLoader {
         em.getTransaction().commit();
     }
     
-    private String getSymbol(String id) {
+    protected String getSymbol(String id) {
         for (StockDescriptor sd : stocks.getStockList()) {
             if (sd.getId().equals(id)) {
                 return sd.getName();
@@ -124,7 +127,7 @@ public class StockDataLoader {
         return id;
     }
     
-    private void loadStocks() {
+    protected void loadStocks() {
         
         for (EqFileName fn : fileNames) {
         em.getTransaction().begin();    

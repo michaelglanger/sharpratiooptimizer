@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +25,8 @@ import sharpratiooptimizer.equity.ValueDataStock;
  */
 public class StockDataProvider implements IDataProvider{
 
+    static final Logger log = Logger.getLogger(StockDataProvider.class.getName());
+    
     @Override
     public List<ValueData> getData(String eqName) {
         return readFromFile(eqName);
@@ -33,7 +34,7 @@ public class StockDataProvider implements IDataProvider{
     
     public List<ValueData> readFromFile(String fileName) {
         File file = new File(fileName);
-        System.out.println(file.getAbsolutePath());
+        log.info(file.getAbsolutePath());
         List<ValueData> list = new ArrayList<ValueData>();
         try {
             
@@ -62,7 +63,7 @@ public class StockDataProvider implements IDataProvider{
                     
                     list.add(vds);
                 } else {
-                    System.out.println("Non numeric line: " + line);
+                    log.info("Non numeric line: " + line);
                 }
             }
             

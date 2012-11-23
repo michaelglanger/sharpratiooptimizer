@@ -10,9 +10,6 @@ import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +23,7 @@ import sharpratiooptimizer.configuration.EqFiles;
 import sharpratiooptimizer.configuration.MarketDescriptor;
 import sharpratiooptimizer.configuration.StockDescriptor;
 import sharpratiooptimizer.configuration.Stocks;
+import sharpratiooptimizer.connection.ConnectionHelper;
 import sharpratiooptimizer.dataprovider.YahooStockDataProvider;
 
 /**
@@ -36,6 +34,8 @@ public class AuthomaticXMLCreator {
 
     private static final String init = "http://finance.yahoo.com/d/quotes.csv?s=";
     private static final String end = "&f=sx";
+    
+    static final Logger log = Logger.getLogger(AuthomaticXMLCreator.class.getName());
 
     public String createURL() {
         ResourceBundle rb = ResourceBundle.getBundle("symbols");
@@ -55,31 +55,18 @@ public class AuthomaticXMLCreator {
 
         return sb.toString();
     }
-
-    private URLConnection getConnection(String url) {
-        URLConnection yc = null;
-        try {
-            URL oracle = new URL(url);
-            Proxy p = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy.ict", 8080));
-
-            yc = oracle.openConnection();
-        } catch (IOException ex) {
-            Logger.getLogger(YahooStockDataProvider.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return yc;
-    }
-
+   
     public void start() {
         BufferedReader in = null;
         Map<String, List> map = new HashMap<String, List>();
         try {
             String url = createURL();
-            URLConnection connection = getConnection(url);
+            URLConnection connection = ConnectionHelper.getInstance().getConnection(url);
             //FileNotFoundException
             in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
-                System.out.println(inputLine);
+                log.info(inputLine);
                 String[] ss = inputLine.split(",");
                 
                 String isin = ss[1].replaceAll("\"", "");

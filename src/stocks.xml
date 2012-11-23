@@ -21,7 +21,6 @@
         <StockDescriptor id="bas.de_xetra" market="XETRA">
             <name>BAS.DE</name>
         </StockDescriptor>
-        
         <StockDescriptor id="bayn.de_xetra" market="XETRA">
             <name>BAYN.DE</name>
         </StockDescriptor>
@@ -40,7 +39,6 @@
         <StockDescriptor id="dai.de_xetra" market="XETRA">
             <name>DAI.DE</name>
         </StockDescriptor>
-        
         <StockDescriptor id="db1.de_xetra" market="XETRA">
             <name>DB1.DE</name>
         </StockDescriptor>
@@ -53,7 +51,6 @@
         <StockDescriptor id="dte.de_xetra" market="XETRA">
             <name>DTE.DE</name>
         </StockDescriptor>
-        
         <StockDescriptor id="eoan.de_xetra" market="XETRA">
             <name>EOAN.DE</name>
         </StockDescriptor>
@@ -66,7 +63,6 @@
         <StockDescriptor id="hei.de_xetra" market="XETRA">
             <name>HEI.DE</name>
         </StockDescriptor>
-        
         <StockDescriptor id="hen3.de_xetra" market="XETRA">
             <name>HEN3.DE</name>
         </StockDescriptor>
@@ -82,7 +78,6 @@
         <StockDescriptor id="lxs.de_xetra" market="XETRA">
             <name>LXS.DE</name>
         </StockDescriptor>
-        
         <StockDescriptor id="mrk.de_xetra" market="XETRA">
             <name>MRK.DE</name>
         </StockDescriptor>
@@ -107,7 +102,6 @@
         <StockDescriptor id="vow3.de_xetra" market="XETRA">
             <name>VOW3.DE</name>
         </StockDescriptor>
-        
         <StockDescriptor id="csco_nasdaqnm" market="NasdaqNM">
             <name>CSCO</name>
         </StockDescriptor>
@@ -132,7 +126,6 @@
         <StockDescriptor id="cat_nyse" market="NYSE">
             <name>CAT</name>
         </StockDescriptor>
-        <!--
         <StockDescriptor id="cvx_nyse" market="NYSE">
             <name>CVX</name>
         </StockDescriptor>
@@ -199,6 +192,5 @@
         <StockDescriptor id="xom_nyse" market="NYSE">
             <name>XOM</name>
         </StockDescriptor>
-        -->
     </stockList>
 </Stocks>

@@ -11,7 +11,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -19,6 +18,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.eclipse.persistence.annotations.Cache;
+import org.eclipse.persistence.annotations.CacheCoordinationType;
+import org.eclipse.persistence.annotations.CacheType;
 
 /**
  *
@@ -31,12 +33,18 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Market.findAll", query = "SELECT m FROM Market m"),
     @NamedQuery(name = "Market.findById", query = "SELECT m FROM Market m WHERE m.id = :id"),
     @NamedQuery(name = "Market.findByMarketName", query = "SELECT m FROM Market m WHERE m.marketName = :marketName")})
+@Cache(
+  type=CacheType.SOFT,
+  size=50,  
+  expiry=36000000,  // 10 minutes
+  coordinationType=CacheCoordinationType.INVALIDATE_CHANGED_OBJECTS  
+)
 public class Market implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "ID")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_market")
+    @GeneratedValue
     private Long id;
     @Column(name = "MARKET_NAME")
     private String marketName;

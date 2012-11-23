@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,6 +20,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.eclipse.persistence.annotations.Cache;
+import org.eclipse.persistence.annotations.CacheCoordinationType;
+import org.eclipse.persistence.annotations.CacheType;
 
 /**
  *
@@ -39,12 +41,18 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Stock.findByMktclose", query = "SELECT s FROM Stock s WHERE s.mktclose = :mktclose"),
     @NamedQuery(name = "Stock.findByVolume", query = "SELECT s FROM Stock s WHERE s.volume = :volume"),
     @NamedQuery(name = "Stock.findByAdjClose", query = "SELECT s FROM Stock s WHERE s.adjClose = :adjClose")})
+@Cache(
+  type=CacheType.SOFT,
+  size=64000,  
+  expiry=36000000,  // 10 minutes
+  coordinationType=CacheCoordinationType.INVALIDATE_CHANGED_OBJECTS  
+)
 public class Stock implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
     @Column(name = "ID")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_stock")
+    @GeneratedValue
     private Long id;
     @Basic(optional = false)
     @Column(name = "DATE")

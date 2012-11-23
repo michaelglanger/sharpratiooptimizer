@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
@@ -27,6 +28,8 @@ public class DatabaseStockDataProvider implements IDataProvider {
         
     private String PERSISTENCE_UNIT_NAME = "SharpRatioOptimizerPU";
     
+    static final Logger log = Logger.getLogger(DatabaseStockDataProvider.class.getName());
+    
     @Override
     public List<ValueData> getData(String eqName) {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -44,7 +47,7 @@ public class DatabaseStockDataProvider implements IDataProvider {
         try {
             smbl = (Symbol) qs.getSingleResult();
         } catch (NoResultException e) {
-            System.out.println(symbol);
+            log.info(symbol);
             e.printStackTrace();
         }
         

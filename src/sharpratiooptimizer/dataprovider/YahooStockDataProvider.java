@@ -8,9 +8,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -19,6 +16,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import sharpratiooptimizer.connection.ConnectionHelper;
 import sharpratiooptimizer.equity.ValueData;
 import sharpratiooptimizer.equity.ValueDataStock;
 
@@ -37,6 +35,7 @@ public class YahooStockDataProvider implements IDataProvider {
     private static final String endYear = "&f=";
     private static final String end = "&g=d&ignore=.csv";
     
+    static final Logger log = Logger.getLogger(YahooStockDataProvider.class.getName());
     
     @Override
     public List<ValueData> getData(String eqName) {
@@ -53,12 +52,12 @@ public class YahooStockDataProvider implements IDataProvider {
         BufferedReader in = null;
         try {
             String url = createURL(symbol, initDate, endDate);
-            URLConnection connection = getConnection(url);
+            URLConnection connection = ConnectionHelper.getInstance().getConnection(url);
             //FileNotFoundException
             in = new BufferedReader( new InputStreamReader( connection.getInputStream() ) );
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
-                System.out.println(inputLine);
+                log.info(inputLine);
                 
                  if ( Character.isDigit(inputLine.trim().toCharArray()[0]) ) {
                     String[] ss = inputLine.trim().split(",");
@@ -81,7 +80,7 @@ public class YahooStockDataProvider implements IDataProvider {
                     
                     list.add(vds);
                 } else {
-                    System.out.println("Non numeric line: " + inputLine);
+                    log.info("Non numeric line: " + inputLine);
                 }
                 
             }
@@ -122,18 +121,18 @@ public class YahooStockDataProvider implements IDataProvider {
         return sb.toString();
     }
     
-    private URLConnection getConnection(String url) {
-        URLConnection yc = null;
-        try {
-            URL oracle = new URL(url);
-            Proxy p = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy.ict", 8080));
-              
-            yc = oracle.openConnection();
-        } catch (IOException ex) {
-            Logger.getLogger(YahooStockDataProvider.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        return yc;
-    }
+//    private URLConnection getConnection(String url) {
+//        URLConnection yc = null;
+//        try {
+//            URL oracle = new URL(url);
+//            Proxy p = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("proxy.ict", 8080));
+//              
+//            yc = oracle.openConnection();
+//        } catch (IOException ex) {
+//            Logger.getLogger(YahooStockDataProvider.class.getName()).log(Level.SEVERE, null, ex);
+//        } 
+//        return yc;
+//    }
     
     private int normalizeYear(int year) {
         if (year < 1900) {

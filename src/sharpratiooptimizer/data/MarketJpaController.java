@@ -5,15 +5,15 @@
 package sharpratiooptimizer.data;
 
 import java.io.Serializable;
-import javax.persistence.Query;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import sharpratiooptimizer.data.exceptions.IllegalOrphanException;
 import sharpratiooptimizer.data.exceptions.NonexistentEntityException;
 import sharpratiooptimizer.data.exceptions.PreexistingEntityException;

@@ -5,13 +5,9 @@
 package sharpratiooptimizer.equity;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import org.apache.commons.math3.stat.descriptive.moment.Mean;
 import org.apache.commons.math3.stat.descriptive.moment.StandardDeviation;
 
@@ -21,7 +17,7 @@ import org.apache.commons.math3.stat.descriptive.moment.StandardDeviation;
  */
 public class EquityHelper {
 
-    public static List<Double> getDailyReturn(List<ValueData> input) {
+    public List<Double> getDailyReturn(List<ValueData> input) {
         List<Double> result = new ArrayList<Double>();
         result.add(0d);
         for (int i = 1; i < input.size(); i++) {
@@ -31,7 +27,7 @@ public class EquityHelper {
         return result;
     }
     
-    public static Map<Integer, Double> calculateDailyReturn(List<ValueData> input) {
+    public Map<Integer, Double> calculateDailyReturn(List<ValueData> input) {
         Map<Integer, Double> result = new HashMap<Integer, Double>();
         
         ValueData vd = input.get(0);
@@ -45,7 +41,7 @@ public class EquityHelper {
         return result;
     }
 
-    public static double getSharpRatio(List<Double> list) {
+    public double getSharpRatio(List<Double> list) {
         StandardDeviation standardDeviation = new StandardDeviation();
         Mean mean = new Mean();
 
@@ -66,14 +62,19 @@ public class EquityHelper {
         return result;
     }
 
-    public static int[] shiftWeighters(int[] input, int delta, int sumValue) {
+    public int[] shiftWeighters(int[] input, int delta, int sumValue) {
+        float changeRatio = 0.3f;
         int[] result = new int[input.length];
 
         double[] intermediate = new double[input.length];
         double sum = 0;
 
         for (int i = 0; i < input.length; i++) {
-            intermediate[i] = (delta * (Math.random() - 0.5)) + input[i];
+            if (Math.random() > changeRatio)    {
+                intermediate[i] = (delta * (Math.random() - 0.5)) + input[i];
+            } else {
+                intermediate[i] = input[i];
+            }
             sum += intermediate[i];
         }
         double d = sumValue / sum / 100;
@@ -92,7 +93,7 @@ public class EquityHelper {
         return result;
     }
 
-    public static int[] createWeighters(int amount, int sumValue) {
+    public int[] createWeighters(int amount, int sumValue) {
         int[] result = new int[amount];
         double[] intermediate = new double[amount];
         double sum = 0;
@@ -119,50 +120,50 @@ public class EquityHelper {
     }
 
     
-    public static List<Integer> getDatesList(Equity[] eqs) {
-        Set<Integer> sResult = new HashSet<Integer>();
-        
-        for (Equity e : eqs) {
-            for (ValueData vd : e.getList()) {
-                sResult.add(vd.getiDate());
-            }
-        }
-        
-        List<Integer> result = new ArrayList<Integer>();
-        
-        result.addAll(sResult);
-        
-        Collections.sort(result, new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return (o1<o2 ? -1 : (o1==o2 ? 0 : 1));
-            }
-        });
-        
-        return result;
-    }
+//    public List<Integer> getDatesList(Equity[] eqs) {
+//        Set<Integer> sResult = new HashSet<Integer>();
+//        
+//        for (Equity e : eqs) {
+//            for (ValueData vd : e.getList()) {
+//                sResult.add(vd.getiDate());
+//            }
+//        }
+//        
+//        List<Integer> result = new ArrayList<Integer>();
+//        
+//        result.addAll(sResult);
+//        
+//        Collections.sort(result, new Comparator<Integer>() {
+//            @Override
+//            public int compare(Integer o1, Integer o2) {
+//                return (o1<o2 ? -1 : (o1==o2 ? 0 : 1));
+//            }
+//        });
+//        
+//        return result;
+//    }
     
-    public static double getCompoundSharpRatio(Equity[] eqs, int[] weights) {
-        //(List<Double> list1, int dist1, List<Double> list2, int dist2) {
-        List<Double> compList = new ArrayList<Double>();
-
-        List<Integer> datesList = getDatesList(eqs);
-        List<Double> dailyReturns = new ArrayList<Double>();
-        for (Integer i : datesList) {
-            double sum = 0;
-            for (int j = 0; j < eqs.length; j++) {
-                Map<Integer, Double> dr = eqs[j].getdReturns();
-                Double d = dr.get(i);
-                if (d==null) {
-                    d = 0d;
-                } else {
-                    sum += d * ((float) weights[j]);
-                }
-            }
-            dailyReturns.add(sum);
-        }
-
-        return getSharpRatio(dailyReturns);
+//    public double getCompoundSharpRatio(Equity[] eqs, int[] weights) {
+//        //(List<Double> list1, int dist1, List<Double> list2, int dist2) {
+//        List<Double> compList = new ArrayList<Double>();
+//
+//        List<Integer> datesList = getDatesList(eqs);
+//        List<Double> dailyReturns = new ArrayList<Double>();
+//        for (Integer i : datesList) {
+//            double sum = 0;
+//            for (int j = 0; j < eqs.length; j++) {
+//                Map<Integer, Double> dr = eqs[j].getdReturns();
+//                Double d = dr.get(i);
+//                if (d==null) {
+//                    d = 0d;
+//                } else {
+//                    sum += d * ((float) weights[j]);
+//                }
+//            }
+//            dailyReturns.add(sum);
+//        }
+//
+//        return getSharpRatio(dailyReturns);
         
 //        for (int i = 0; i < eqs[0].getList().size(); i++) {
 //            double sum = 0;
@@ -179,5 +180,5 @@ public class EquityHelper {
 //
 //
 //        return getSharpRatio(compList);
-    }
+//    }
 }
