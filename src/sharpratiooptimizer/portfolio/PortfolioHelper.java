@@ -61,7 +61,6 @@ public class PortfolioHelper {
         } catch (InterruptedException ex) {
             Logger.getLogger(PortfolioHelper.class.getName()).log(Level.SEVERE, null, ex);
         }
-        execService = Executors.newFixedThreadPool(40); 
     }
     
      public Portfolio createPortofolio(Equity[] equities, int[] wgts, Calendar initDate, Calendar endDate) {

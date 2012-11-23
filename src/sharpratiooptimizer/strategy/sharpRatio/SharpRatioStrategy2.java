@@ -96,7 +96,7 @@ public class SharpRatioStrategy2 implements IStrategy {
 
             pps.addAll(pfh.createSetPortfolio(files, initDate, endDate, 4, 15, 10+removeCounter));
         }
-        
+        pfh.waitAndShutdown();
         Collections.sort(pps, comparator);
         
          for (Portfolio pp : pps) {
